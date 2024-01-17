@@ -18,22 +18,22 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                // Run Docker container from the built image
-                script {
-                    def dockerContainer = docker.image('go-app-boilerplate:latest').run('-p 8080:80', '-d')
-                }
-            }
-        }
+       # stage('Run Docker Container') {
+        #    steps {
+         #       // Run Docker container from the built image
+          #      script {
+           #         def dockerContainer = docker.image('go-app-boilerplate:latest').run('-p 8080:80', '-d')
+            #    }
+            #}
+        #}
 
-        stage('Cleanup') {
-            steps {
-                // Clean up Docker resources if needed
-                script {
-                    dockerContainer.stop()
-                    dockerContainer.remove()
-                }
+        #stage('Cleanup') {
+         #   steps {
+            #    // Clean up Docker resources if needed
+             #   script {
+              #      dockerContainer.stop()
+               #     dockerContainer.remove()
+                #}
             }
         }
     }
